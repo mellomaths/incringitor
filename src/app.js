@@ -20,6 +20,7 @@ bot.command('/addcringeword', async ctx => {
   await command.handle(ctx);
 });
 
+console.log('Bot started.');
 bot.launch();
 
 // Enable graceful stop
