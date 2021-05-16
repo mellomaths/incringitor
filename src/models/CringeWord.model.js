@@ -11,11 +11,7 @@ const CringeWord = sequelize.define('CringeWord', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  addedAt: {
-    type: DataTypes.DATE,
-    defaultValue: new Date(),
-  }
-});
+}, { timestamps: true });
 
 module.exports = {
   CringeWord,
