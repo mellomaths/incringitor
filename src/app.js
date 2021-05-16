@@ -1,6 +1,5 @@
 const { Telegraf } = require('telegraf');
 const AddCringeWordCommand = require('./commands/AddCringeWord.command');
-const { calculateCringePoints, rateCringe } = require('./commands/cringera');
 const CringeraCommand = require('./commands/Cringera.command');
 require('dotenv').config();
 
@@ -9,7 +8,7 @@ require('dotenv').config();
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 bot.start((ctx) => ctx.reply('Fala aí! Vejo que você também é um Lord do Cringe!'));
 
-bot.command('/cringera', ctx => {
+bot.command('/cringera', async ctx => {
   console.log('Bot received /cringera command request');
   const command = new CringeraCommand();
   await command.handle(ctx);
