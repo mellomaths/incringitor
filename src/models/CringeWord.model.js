@@ -1,12 +1,12 @@
-const { DataTypes, Model } = require('sequelize');
+const { DataTypes, Model, Sequelize } = require('sequelize');
 const sequelize = require('../database');
 
 class CringeWord extends Model { }
 
 CringeWord.init({
   id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
+    type: DataTypes.UUID,
+    defaultValue: Sequelize.UUIDV4,
     primaryKey: true,
   },
   word: {
