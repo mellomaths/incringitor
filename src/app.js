@@ -1,8 +1,7 @@
 const { Telegraf } = require('telegraf');
+const AddCringeWordCommand = require('./commands/AddCringeWord.command');
 const { calculateCringePoints, rateCringe } = require('./commands/cringera');
 require('dotenv').config();
-
-const cringeWords = [];
 
 // Todo: Ranking de Cringe
 
@@ -27,11 +26,10 @@ bot.command('/cringera', ctx => {
   ctx.reply(cringeRating, { reply_to_message_id: message.message_id });
 });
 
-bot.command('/addcringeword', ctx => {
+bot.command('/addcringeword', async ctx => {
   console.log('Bot received /addcringeword command request');
-  const cringe = ctx.message.text.replace('/addcringeword', '').trim().toLowerCase();
-  console.log(`Adding '${cringe}' to the cringe words.`);
-  cringeWords.push(cringe);
+  const command = new AddCringeWordCommand();
+  await command.handle(ctx);
 });
 
 bot.launch();
