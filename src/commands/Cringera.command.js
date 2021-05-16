@@ -26,7 +26,7 @@ class CringeraCommand {
     const cringeWords = await CringeWord.findAll();
 
     cringeWords.forEach(cw => {
-      if (msg.includes(cw)) {
+      if (msg.includes(cw.word)) {
         cringePoints++;
       }
     });
