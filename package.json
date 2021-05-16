@@ -20,6 +20,8 @@
   "homepage": "https://github.com/mellomaths/telegram#readme",
   "dependencies": {
     "dotenv": "^9.0.2",
+    "sequelize": "^6.6.2",
+    "sqlite3": "^5.0.2",
     "telegraf": "^4.3.0"
   },
   "devDependencies": {
