@@ -1,7 +1,9 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../database');
 
-const CringeWord = sequelize.define('CringeWord', {
+class CringeWord extends Model { }
+
+CringeWord.init({
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -11,8 +13,6 @@ const CringeWord = sequelize.define('CringeWord', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-}, { timestamps: true });
+}, { sequelize, timestamps: true });
 
-module.exports = {
-  CringeWord,
-};
+module.exports = CringeWord;
