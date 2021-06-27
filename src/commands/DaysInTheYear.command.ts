@@ -15,7 +15,7 @@ export class DaysInTheYear extends Command {
     const year = new Date().getFullYear();
     const beginning = new Date(`${year}-01-01`);
     const today = new Date();
-    const days = DateHelper.calculateDaysBetween(beginning, today) + 1;
+    const days = DateHelper.calculateDaysBetween(beginning, today);
     console.log(`DaysInTheYear.handle: There are ${days} in this year, today (${today}).`);
     context.reply(`Hoje é o ${days} dia do ano de ${year}`, { reply_to_message_id: msg.id });
   }
