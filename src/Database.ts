@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import { DatabaseSettings } from './config/DatabaseSettings';
+import { buildDatabaseSettings, DatabaseSettings } from './config/DatabaseSettings';
 
 export class Database {
   private static instance: Database;
@@ -14,7 +14,7 @@ export class Database {
     console.log('Database.load: Loading a Database instance....');
     if (!this.instance) {
       console.log('Database.load: Creating a new Database instance....');
-      this.instance = new Database(new DatabaseSettings());
+      this.instance = new Database(buildDatabaseSettings());
     }
 
     return this.instance;
