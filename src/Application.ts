@@ -8,8 +8,11 @@ dotenv.config();
 export class Application {
 
   private static instance: Application;
+  
   private token: string;
-  private bot: Telegraf;
+
+  public readonly bot: Telegraf;
+  public readonly database: Database;
   public readonly settings: Settings;
 
   private constructor() {
@@ -17,6 +20,7 @@ export class Application {
     this.token = process.env.TELEGRAM_BOT_TOKEN;
     this.bot = new Telegraf<BotContext>(this.token);
     this.settings = new Settings();
+    this.database = Database.load(this.settings.database);
     this.setup();
   }
 
@@ -26,10 +30,6 @@ export class Application {
     }
 
     return this.instance;
-  }
-
-  public getBot(): Telegraf {
-    return this.bot;
   }
 
   private setup(): void {

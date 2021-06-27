@@ -1,6 +1,7 @@
 import { DataTypes, Model, Sequelize } from 'sequelize/types';
 import { Database } from "../Database";
 import { v4 as uuid } from 'uuid'
+import { Application } from '../Application';
 
 export class CringeWord extends Model {
   public id!: string;
@@ -18,7 +19,7 @@ CringeWord.init({
     allowNull: false,
   },
 }, { 
-  sequelize: Database.getInstance().getSequelize(), 
+  sequelize: Application.getInstance().database.getSequelize(), 
   timestamps: true, 
   tableName: 'CringeWords',
 });

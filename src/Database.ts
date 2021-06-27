@@ -1,24 +1,18 @@
-import { Sequelize, Options } from 'sequelize/types';
+import { Sequelize } from 'sequelize';
+import { DatabaseSettings } from './config/DatabaseSettings';
 
 export class Database {
   private static instance: Database;
   private sequelize: Sequelize;
-  private options: Options;
-  private databaseUri: string;
 
-  private constructor() {
-    this.databaseUri = process.env.DATABASE_URI || 'sqlite::memory:';
-    this.options = {
-      define: {
-        freezeTableName: true,
-      },
-    };
-    this.sequelize = new Sequelize(this.databaseUri, this.options);
+  private constructor(settings: DatabaseSettings) {
+    console.log('Database: Initializing Database connection....');
+    this.sequelize = new Sequelize(settings.uri, settings.options);
   }
 
-  public static getInstance() {
+  public static load(settings: DatabaseSettings): Database {
     if (!this.instance) {
-      this.instance = new Database();
+      this.instance = new Database(settings);
     }
 
     return this.instance;
