@@ -1,7 +1,7 @@
 import { AddCringeWordCommand } from '../commands/AddCringeWord.command';
 import { Command } from '../commands/Command';
 import { CringeraCommand } from '../commands/Cringera.command';
-import { DaysInTheYear } from '../commands/DaysInTheYear.command';
+import { DaysInTheYearCommand } from '../commands/DaysInTheYear.command';
 import { DaysOfBolsonaro } from '../commands/DaysOfBolsonaro.command';
 import { OnStartupEvent } from '../events/OnStartup.event';
 import { buildDatabaseSettings, DatabaseSettings } from './DatabaseSettings';
@@ -24,6 +24,6 @@ export class Settings {
     this.commands.push(new AddCringeWordCommand());
     this.commands.push(new CringeraCommand());
     this.commands.push(new DaysOfBolsonaro());
-    this.commands.push(new DaysInTheYear());
+    this.commands.push(new DaysInTheYearCommand());
   }
 }
