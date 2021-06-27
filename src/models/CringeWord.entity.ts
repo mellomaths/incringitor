@@ -1,7 +1,8 @@
-import { DataTypes, Model, Sequelize } from 'sequelize/types';
-import { Database } from "../Database";
-import { v4 as uuid } from 'uuid'
-import { Application } from '../Application';
+import { DataTypes, Model } from 'sequelize';
+import { v4 as uuid } from 'uuid';
+import { Database } from '../Database';
+
+const sequelize = Database.load().getSequelize();
 
 export class CringeWord extends Model {
   public id!: string;
@@ -19,7 +20,7 @@ CringeWord.init({
     allowNull: false,
   },
 }, { 
-  sequelize: Application.getInstance().database.getSequelize(), 
+  sequelize: sequelize, 
   timestamps: true, 
   tableName: 'CringeWords',
 });

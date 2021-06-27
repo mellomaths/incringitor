@@ -10,9 +10,11 @@ export class Database {
     this.sequelize = new Sequelize(settings.uri, settings.options);
   }
 
-  public static load(settings: DatabaseSettings): Database {
+  public static load(): Database {
+    console.log('Database.load: Loading a Database instance....');
     if (!this.instance) {
-      this.instance = new Database(settings);
+      console.log('Database.load: Creating a new Database instance....');
+      this.instance = new Database(new DatabaseSettings());
     }
 
     return this.instance;

@@ -18,17 +18,20 @@ export class Application {
   private constructor() {
     console.log('Application: Initializing the application....');
     this.token = process.env.TELEGRAM_BOT_TOKEN;
+    console.log('Application: Creating a new Bot instance....');
     this.bot = new Telegraf<BotContext>(this.token);
     this.settings = new Settings();
-    this.database = Database.load(this.settings.database);
+    this.database = Database.load();
     this.setup();
   }
 
   public static getInstance(): Application {
-    if (!this.instance) {
+    console.log('Application: Getting an Application instance....');
+    if (this.instance === null || this.instance === undefined) {
+      console.log(`Application: Creating a new Application instance....`);
       this.instance = new Application();
     }
-
+    
     return this.instance;
   }
 
@@ -48,9 +51,10 @@ export class Application {
   }
 
   public bootstrap(): void {
+    console.log('Application.bootstrap: Launching Bot....');
     console.log('Application.bootstrap: Initialized successfully.');
-    console.log('Application.bootstrap: Launching bot.');
     this.bot.launch();
+    console.log('Application.bootstrap: Bot started.');
   }
 
 }
