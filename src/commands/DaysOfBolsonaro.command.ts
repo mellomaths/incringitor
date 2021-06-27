@@ -15,7 +15,7 @@ export class DaysOfBolsonaro extends Command {
     const today = new Date();
     const days = this.dateDiffInDays(firstDayInHell, today);
     console.log(`DaysOfBolsonaro.handle: So we really are suffering still after ${days} days, that's nice.`);
-    context.reply(`Estamos há ${days} dias no inferno. Parabéns aos envolvidos!`, { reply_to_message_id: msg.id });
+    context.reply(`Estamos há ${days} dias no inferno, ${days + 1} considerando hoje. Parabéns aos envolvidos!`, { reply_to_message_id: msg.id });
   }
 
   private dateDiffInDays(from: Date, to: Date) {
