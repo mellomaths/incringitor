@@ -11,7 +11,7 @@ export class DaysOfBolsonaro extends Command {
     super.handle(context);
     const msg = context.chatMessage;
     console.log(`DaysOfBolsonaro.handle: Calculating how much time we are in hell.`);
-    const firstDayInHell = new Date('2021-06-01');
+    const firstDayInHell = new Date('2019-01-01');
     const today = new Date();
     const days = this.dateDiffInDays(firstDayInHell, today);
     console.log(`DaysOfBolsonaro.handle: So we really are suffering still after ${days} days, that's nice.`);
