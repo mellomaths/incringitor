@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/app.js",
     "start:dev": "ts-node src/bootstrap.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
