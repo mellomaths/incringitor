@@ -1,6 +1,7 @@
 import { AddCringeWordCommand } from '../commands/AddCringeWord.command';
 import { Command } from '../commands/Command';
 import { CringeraCommand } from '../commands/Cringera.command';
+import { DaysOfBolsonaro } from '../commands/DaysOfBolsonaro.command';
 import { OnStartupEvent } from '../events/OnStartup.event';
 import { buildDatabaseSettings, DatabaseSettings } from './DatabaseSettings';
 import { EventsSettings } from './EventsSettings';
@@ -21,5 +22,6 @@ export class Settings {
     console.log('Settings: Loading Commands and Events settings....');
     this.commands.push(new AddCringeWordCommand());
     this.commands.push(new CringeraCommand());
+    this.commands.push(new DaysOfBolsonaro());
   }
 }
