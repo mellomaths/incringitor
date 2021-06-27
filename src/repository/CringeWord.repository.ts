@@ -9,4 +9,8 @@ export class CringeWordRepository {
     console.log(`CringeWordRepository.save: '${sentence}' saved with id=${cringe.id}`);
   }
 
+  async findAll(): Promise<CringeWord[]> {
+    return await CringeWord.findAll();
+  }
+
 }
