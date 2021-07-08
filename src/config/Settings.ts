@@ -1,16 +1,11 @@
-import { AddCringeWordCommand } from '../commands/AddCringeWord.command';
 import { Command } from '../commands/Command';
-import { CringeraCommand } from '../commands/Cringera.command';
-import { DaysInTheYearCommand } from '../commands/DaysInTheYear.command';
-import { DaysOfBolsonaro } from '../commands/DaysOfBolsonaro.command';
-import { OnStartupEvent } from '../events/OnStartup.event';
+import { CommandLoader } from './CommandLoader';
 import { buildDatabaseSettings, DatabaseSettings } from './DatabaseSettings';
+import { EventLoader } from './EventLoader';
 import { EventsSettings } from './EventsSettings';
 
 export class Settings {
-  public readonly events: EventsSettings = {
-    onStartup: new OnStartupEvent(),
-  };
+  public readonly events: EventsSettings;
 
   public readonly commands: Array<Command> = [];
 
@@ -21,9 +16,7 @@ export class Settings {
     console.log('Settings: Loading Database settings....');
     this.database = buildDatabaseSettings();
     console.log('Settings: Loading Commands and Events settings....');
-    this.commands.push(new AddCringeWordCommand());
-    this.commands.push(new CringeraCommand());
-    this.commands.push(new DaysOfBolsonaro());
-    this.commands.push(new DaysInTheYearCommand());
+    this.events = EventLoader.load();
+    this.commands = CommandLoader.load();
   }
 }
