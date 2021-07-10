@@ -3,6 +3,7 @@ import { Command } from '../commands/Command';
 import { CringeraCommand } from '../commands/Cringera.command';
 import { DaysInTheYearCommand } from '../commands/DaysInTheYear.command';
 import { DaysOfBolsonaro } from '../commands/DaysOfBolsonaro.command';
+import { SpotifyCommand } from '../commands/Spotify.command';
 
 export class CommandLoader {
 
@@ -12,6 +13,7 @@ export class CommandLoader {
     commands.push(new CringeraCommand());
     commands.push(new DaysOfBolsonaro());
     commands.push(new DaysInTheYearCommand());
+    commands.push(new SpotifyCommand());
     return commands;
   }
 }
