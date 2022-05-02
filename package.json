@@ -4,7 +4,7 @@
   "description": "Telegram Bot",
   "main": "src/bootstrap.ts",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/bootstrap.js",
     "start:dev": "ts-node src/bootstrap.ts",
     "build": "tsc",
     "postinstall": "tsc"
