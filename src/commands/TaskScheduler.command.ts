@@ -47,8 +47,9 @@ export class TaskSchedulerCommand extends Command {
       console.log(
         `TaskSchedulerCommand.handle: Rejecting message due to schedule task with invalid type`
       );
+      const options = Object.values(TaskScheduleTypes);
       context.reply(
-        `Informe em qual frequência o bot deve enviar a mensagem. Aqui está as possíveis frequências que o bot permite: ${TaskScheduleTypes}`
+        `Informe em qual frequência o bot deve enviar a mensagem. Aqui está as possíveis frequências que o bot permite: ${options.toString()}`
       );
       return;
     }
