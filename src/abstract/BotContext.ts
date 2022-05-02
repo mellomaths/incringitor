@@ -1,4 +1,4 @@
-import { Context } from 'telegraf';
+import { Context } from "telegraf";
 import { Update } from "typegram";
 
 export class ChatUser {
@@ -36,12 +36,16 @@ export class ChatMessage {
       this.threadMessage = new ChatMessage(message.reply_to_message);
     }
   }
-  
+
   cleanup(commandCallout: string): string {
-    return this.text.replace(commandCallout, '').trim().toLowerCase();
+    console.log(this.text);
+    return this.text
+      .replace(`${commandCallout}@IncringitorBot`, "")
+      .replace(commandCallout, "")
+      .trim()
+      .toLowerCase();
   }
 }
-
 
 export interface BotContext extends Context<Update> {
   chatMessage: ChatMessage;
