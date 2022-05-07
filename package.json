@@ -1,25 +1,24 @@
 {
-  "name": "telegram",
+  "name": "incringitor",
   "version": "1.0.0",
-  "description": "Telegram Bot",
+  "description": "Incringitor",
   "main": "src/bootstrap.ts",
   "scripts": {
     "start": "node dist/bootstrap.js",
     "start:dev": "ts-node src/bootstrap.ts",
-    "build": "tsc",
-    "postinstall": "tsc"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://406fce289bc719a1effca5e5131d3fb67b6b9745@github.com/mellomaths/telegram.git"
+    "url": "git+https://406fce289bc719a1effca5e5131d3fb67b6b9745@github.com/mellomaths/incringitor.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mellomaths/telegram/issues"
+    "url": "https://github.com/mellomaths/incringitor/issues"
   },
-  "homepage": "https://github.com/mellomaths/telegram#readme",
+  "homepage": "https://github.com/mellomaths/incringitor#readme",
   "dependencies": {
     "dotenv": "^9.0.2",
     "node-cron": "^3.0.0",
